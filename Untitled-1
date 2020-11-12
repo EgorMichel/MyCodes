@@ -1,0 +1,23 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BCM)
+leds = [21, 20, 16, 12, 7, 8, 25, 24]
+for m in leds:
+    GPIO.setup(m,GPIO.OUT)
+
+
+def lightUp(ledNumber, period):
+    GPIO.output(leds[ledNumber], 1)
+    time.sleep(period)
+    GPIO.output(leds[ledNumber], 0)
+
+
+n = 0
+
+while n < 2:
+    GPIO.output(21,1)
+    time.sleep(1)
+    GPIO.output(21,0)
+    time.sleep(1)
+    n += 1
